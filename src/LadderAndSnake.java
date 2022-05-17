@@ -8,19 +8,23 @@ public class LadderAndSnake {
         int option = (int) (Math.floor(Math.random() * 10) % 3);
         int position = 0;
 
-        switch (option) {
-            case SNAKE:
-                position -= diceRoll;
-                System.out.println("You have got the snake, position = " + position);
-                break;
+        while (position < 100) {
+            switch (option) {
+                case SNAKE:
+                    position -= diceRoll;
+                    if (position < 0)
+                        position = 0;
+                    System.out.println("You have got the snake, position = " + position);
+                    break;
 
-            case LADDER:
-                position += diceRoll;
-                System.out.println("You have got the ladder, position  = " + position);
-                break;
+                case LADDER:
+                    position += diceRoll;
+                    System.out.println("You have got the ladder, position  = " + position);
+                    break;
 
-            default:
-                System.out.println("You are at the same position = " + position);
+                default:
+                    System.out.println("You are at the same position = " + position);
+            }
         }
     }
 }
